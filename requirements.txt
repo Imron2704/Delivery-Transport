@@ -1,2 +1,3 @@
 USERNAME = Imron
 PASSWORD = 1
+# CKEditor (formerly known as FCKeditor) is a WYSIWYG rich text editor which enables writing content directly inside of web pages or online applications.
