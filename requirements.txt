@@ -1,3 +1,14 @@
 USERNAME = Imron
 PASSWORD = 1
 # CKEditor (formerly known as FCKeditor) is a WYSIWYG rich text editor which enables writing content directly inside of web pages or online applications.
+
+# git rm --cached filename
+# To untrack every file in .gitignore:
+
+# First commit any outstanding code changes, and then run:
+# git rm -r --cached
+# This removes any changed files from the index(staging area), then run:
+# git add .
+# Commit it:
+# git commit -m ".gitignore is now working"
+# To undo git rm --cached filename, use git add filename
