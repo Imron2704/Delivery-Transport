@@ -70,17 +70,17 @@ class User():
 
 
 class Order(models.Model):
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
-    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    # user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    # car = models.ForeignKey(Car, on_delete=models.CASCADE)
     title = models.CharField(max_length=65)
     date_created = models.DateTimeField(auto_now_add=True, blank=True)
     from_here = models.CharField(max_length=50)
     to_here = models.CharField(max_length=50)
     phone_number = models.IntegerField()
-    weight_cargo = models.ForeignKey(WeightCargo, on_delete=models.CASCADE)
-    volume_cargo = models.ForeignKey(VolumeCargo, on_delete = models.CASCADE)
-    type_cargo = models.ForeignKey(TypeCargo, on_delete=models.CASCADE)
-    mode_cargo = models.ForeignKey(ModeCargo, on_delete=models.CASCADE)
+    # weight_cargo = models.ForeignKey(WeightCargo, on_delete=models.CASCADE)
+    # volume_cargo = models.ForeignKey(VolumeCargo, on_delete = models.CASCADE)
+    # type_cargo = models.ForeignKey(TypeCargo, on_delete=models.CASCADE)
+    # mode_cargo = models.ForeignKey(ModeCargo, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='apps/order/', null=True)
     image2 = models.ImageField(upload_to='apps/order/', null=True, blank=True)
     image3 = models.ImageField(upload_to='apps/order/', null=True, blank=True)
