@@ -1,5 +1,4 @@
 from pathlib import Path
-from django.conf import settings
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -63,6 +62,14 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         # 'rest_framework.authentication.BasicAuthentication',
+#         # 'rest_framework.authentication.SessionAuthentication',
+#         'knox.auth.TokenAuthentication',
+#     ]
+# }
 
 ROOT_URLCONF = 'delivery_transports.urls'
 
