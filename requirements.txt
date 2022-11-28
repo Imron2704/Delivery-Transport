@@ -12,3 +12,6 @@ PASSWORD = 1
 # Commit it:
 # git commit -m ".gitignore is now working"
 # To undo git rm --cached filename, use git add filename
+
+# CKEditor (formerly known as FCKeditor) is a WYSIWYG rich text editor which enables writing content directly inside of web pages or online applications.
+# Its core code is written in JavaScript and it is developed by CKSource. CKEditor is available under open source and commercial licenses.
