@@ -272,7 +272,7 @@ class Delivery_Method(models.Model):
     shipping_cost = models.CharField(max_length=75)
 
     class Meta:
-        ordering = ['-country']
+        ordering = ['-title']
 
     def __str__(self) -> str:
         return self.title
@@ -283,7 +283,7 @@ class Delivery_Method_Images(models.Model):
     shipping_cost = models.CharField(max_length=75)
 
     class Meta:
-        ordering = ['-country']
+        ordering = ['-title']
 
     def __str__(self) -> str:
         return self.title
