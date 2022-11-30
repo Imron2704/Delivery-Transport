@@ -20,3 +20,25 @@ class SubmitSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class AboutCompanyImagesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = About_Company_Images
+        fields = (
+            'id', 'image'
+        )
+
+
+class AboutCompanySerializer(serializers.ModelSerializer):
+    about_images = AboutCompanyImagesSerializer(many=True)
+
+    class Meta:
+        model = About_Company
+        fields = (
+            'id',
+            'title',
+            'description',
+            'about_images',
+        )
+
+
+
