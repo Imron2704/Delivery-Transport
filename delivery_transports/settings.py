@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'rest_framework_simplejwt',
     'rest_framework',
+    'knox',
 ]
 
 MIDDLEWARE = [
@@ -38,6 +39,14 @@ MIDDLEWARE = [
     'django.middleware.cache.UpdateCacheMiddleware',
 
 ]  
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
+    ]
+}
 
 CACHES = {
     'default': {

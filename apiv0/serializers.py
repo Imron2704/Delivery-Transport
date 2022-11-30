@@ -11,26 +11,26 @@ class TruckSerializer(serializers.ModelSerializer):
 
 class CostSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Calculate_the_Cost
+        model = Calculate_The_Cost
         fields = '__all__'
 
 
 class SubmitSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Submit_your_application
+        model = Submit_Your_Application
         fields = '__all__'
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email')
+        fields = ('id', 'email', 'password')
 
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password')
+        fields = ('id', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
