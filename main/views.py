@@ -7,20 +7,35 @@ def index(request):
     time.sleep(10)
     return render(request, 'index.html')
 
+@cache_page(6 * 10)
 def contact(request):
+    time.sleep(10)
     return render(request, 'contact.html')
 
+@cache_page(6 * 10)
 def blog(request):
+    time.sleep(10)
     return render(request, 'blog.html')
 
+@cache_page(6 * 10)
 def blog_post(request):
-    return render(request, 'blog-post.html')
+    time.sleep(10)
+    return render(request, 'aboutus.html')
 
+@cache_page(6 * 10)
 def index13(request):
-    return render(request, 'index13.html')
+    time.sleep(10)
+    return render(request, 'forbusiness.html')
 
+@cache_page(6 * 10)
 def photos(request):
-    return render(request, 'photos.html')
+    time.sleep(10)
+    return render(request, 'services.html')
+    
+@cache_page(6 * 10)
+def photos(request):
+    time.sleep(10)
+    return render(request, 'international shipping.html')
 
 # from rest_framework import generics, permissions
 # from rest_framework.response import Response
