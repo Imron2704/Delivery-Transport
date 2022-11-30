@@ -48,12 +48,12 @@ REST_FRAMEWORK = {
     ]
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_table_name',
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'my_table_name',
+#     }
+# }
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'delivery_transports.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'NAME': 'Internship',
         'USER': 'postgres',
         'PASSWORD': 'qwertyuiop',
         'HOST': '127.0.0.1',
@@ -136,17 +136,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static'
+# ]
+
 STATIC_URL = '/static/'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-STATIC_URL = 'static/'
 MEDIA_URL = '/images/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
