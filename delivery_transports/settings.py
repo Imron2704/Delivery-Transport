@@ -136,10 +136,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static'
-# ]
-
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/images/'
