@@ -158,8 +158,6 @@ class Submit_your_application():
     from_to = models.CharField(max_length=75)
     phone_number = models.IntegerField(default=0)
 
-    def __str__(self):
-        return self.stuff
 
     
     class Meta:
@@ -183,8 +181,6 @@ class User():
 
 # class Services():
 #     pass
-
-
 
 
 # class For_business():
