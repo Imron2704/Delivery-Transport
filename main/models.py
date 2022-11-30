@@ -17,7 +17,7 @@ class WeightCargo(models.Model):
         return self.title
 
 
-class VolumeCargo(models.Model):
+class LengthCargo(models.Model):
     title = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
 
@@ -40,31 +40,11 @@ class ModeCargo(models.Model):
     def __str__(self) -> str:
         return self.title
 
-    
-class Order(models.Model):
-    # users = models.ForeignKey(Accounts, on_delete=models.CASCADE)
-    # car = models.ForeignKey(Truck, on_delete=models.CASCADE)
-    title = models.CharField(max_length=65)
-    date_created = models.DateTimeField(auto_now_add=True, blank=True)
-    from_here = models.CharField(max_length=50)
-    to_here = models.CharField(max_length=50)
-    phone_number = models.IntegerField()
-    weight_cargo = models.ForeignKey(WeightCargo, on_delete=models.CASCADE)
-    volume_cargo = models.ForeignKey(VolumeCargo, on_delete = models.CASCADE)
-    type_cargo = models.ForeignKey(TypeCargo, on_delete=models.CASCADE)
-    mode_cargo = models.ForeignKey(ModeCargo, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='apps/order/', null=True)
-    image2 = models.ImageField(upload_to='apps/order/', null=True, blank=True)
-    image3 = models.ImageField(upload_to='apps/order/', null=True, blank=True)
-
-    def __str__(self) -> str:
-        return self.title, self.image
-
 
 class Truck(models.Model):
-    title = models.CharField()
+    title = models.CharField(max_length=75)
     image = models.ImageField(upload_to = 'image/truck_images', null = True)
-    description = models.TextField()
+    description = models.TextField(max_length=50)
     category = models.ForeignKey(CategoryForTruck, on_delete=models.CASCADE, null=True, blank=True)
     car_weight = models.FloatField(default=0)
     car_length = models.FloatField(default=0)
@@ -79,16 +59,42 @@ class Truck(models.Model):
         return self.title
 
 
-class BlogAboutTruck(models.Model):
+## Автопарк
+
+    
+class Order(models.Model):
+    # users = models.ForeignKey(Accounts, on_delete=models.CASCADE)
+    car = models.ForeignKey(Truck, on_delete=models.CASCADE)
+    title = models.CharField(max_length=65)
+    date_created = models.DateTimeField(auto_now_add=True, blank=True)
+    from_here = models.CharField(max_length=50)
+    to_here = models.CharField(max_length=50)
+    phone_number = models.IntegerField()
+    weight_cargo = models.ForeignKey(WeightCargo, on_delete=models.CASCADE)
+    volume_cargo = models.ForeignKey(LengthCargo, on_delete = models.CASCADE)
+    type_cargo = models.ForeignKey(TypeCargo, on_delete=models.CASCADE)
+    mode_cargo = models.ForeignKey(ModeCargo, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='apps/order/', null=True)
+    image2 = models.ImageField(upload_to='apps/order/', null=True, blank=True)
+    image3 = models.ImageField(upload_to='apps/order/', null=True, blank=True)
+
+    def __str__(self) -> str:
+        return self.title, self.image
+
+
+## Блог
+
+
+class Blog_About_Truck(models.Model):
     title = models.CharField(max_length=75)
-    is_active = models.BooleanField()
+    is_active = models.BooleanField(default=True)
 
     def __str__(self) -> str:
         return self.title
 
 
 class Blog(models.Model):
-    category = models.ForeignKey(BlogAboutTruck, on_delete=models.CASCADE, null=True, blank=True)
+    category = models.ForeignKey(Blog_About_Truck, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='image/blogimages', null=True)
     description = models.CharField(max_length=100)
@@ -99,9 +105,12 @@ class Blog(models.Model):
         return self.title
 
 
-class AboutCompany(models.Model):
+## Главная_2
+
+
+class About_Company(models.Model):
     title = models.CharField(max_length=65)
-    description = models.TextField()
+    description = models.TextField(max_length=50)
     is_active = models.BooleanField(default=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
@@ -109,13 +118,17 @@ class AboutCompany(models.Model):
         return self.title
 
 
-class AboutCompanyImages(models.Model):
-    about = models.ForeignKey(AboutCompany, on_delete=models.CASCADE, null=True)
+class About_Company_Images(models.Model):
+    about = models.ForeignKey(About_Company, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='image/aboutimages', null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return f'Image of {self.about.id}'
+
+
+## Контакты
+
 
 CONTACT_STATUS = (
     (0, "NEW"),
@@ -137,7 +150,10 @@ class Contact(models.Model):
         return self.title
 
 
-class Calculate_the_Cost():
+## Поп-ап
+
+
+class Calculate_The_Cost():
     full_name = models.CharField(max_length = 250)
     from_somewhere = models.CharField(max_length = 70)
     to_somewhere = models.CharField(max_length = 100)
@@ -153,11 +169,49 @@ class Calculate_the_Cost():
         return self.full_name
 
 
-class Submit_your_application():
+## Frame 26
+
+
+class Unloading_And_Loading():
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=150)
+
+    class Meta:
+        ordering = ['-title']
+
+    def __str__(self) -> str:
+        return self.title
+
+
+## Внутренняя
+
+
+class Work_Principles():
+    title = models.CharField(max_length=65)
+    description = models.TextField()
+    is_active = models.BooleanField(default=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Work_Principles_Images(models.Model):
+    about = models.ForeignKey(About_Company, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to='image/aboutimages', null=True)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'Image of {self.about.id}'
+
+
+class Submit_Your_Application():
     stuff = models.CharField(max_length=150)
     from_to = models.CharField(max_length=75)
     phone_number = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.stuff
 
     
     class Meta:
@@ -179,8 +233,60 @@ class User():
         return self.email
 
 
-# class Services():
-#     pass
+# Не сборные грузы
+
+
+class Our_Services():
+    title = models.CharField(max_length=65)
+    price = models.CharField(max_length=75)
+
+    def __str__(self):
+        return self.title
+
+
+class Our_Services_Images(models.Model):
+    image = models.ImageField(upload_to='image/serviceimages', null=True)
+    is_active = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'Image of {self.title.id}'
+
+
+# Frame 25
+
+
+class Cost_Of_Delivery(models.Model):
+    country = models.CharField(max_length=100)
+    shipping_cost = models.CharField(max_length=75)
+    is_active = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-country']
+
+    def __str__(self) -> str:
+        return self.country
+
+
+class Delivery_Method(models.Model):
+    title = models.CharField(max_length=100)
+    shipping_cost = models.CharField(max_length=75)
+
+    class Meta:
+        ordering = ['-country']
+
+    def __str__(self) -> str:
+        return self.title
+
+
+class Delivery_Method_Images(models.Model):
+    title = models.CharField(max_length=100)
+    shipping_cost = models.CharField(max_length=75)
+
+    class Meta:
+        ordering = ['-country']
+
+    def __str__(self) -> str:
+        return self.title
 
 
 # class For_business():
