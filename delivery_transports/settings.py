@@ -6,7 +6,7 @@ SECRET_KEY = 'django-insecure-x_7ve=ocvudb2*=w1g_n@iy2chu_n-+p2nsh_01re87gx_o_x_
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -15,12 +15,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 'apps'
+    'accounts',
+    'apiv0',
     'main',
-    # 'django.contrib.sites',  
+
+    # 'django.contrib.sites' 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+
+    # 'credential packages'
     'rest_framework_simplejwt',
     'rest_framework',
     'knox',
@@ -130,7 +137,7 @@ REST_FRAMEWORK = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
