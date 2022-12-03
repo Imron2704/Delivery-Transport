@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class CategoryForTruck(models.Model):
@@ -43,7 +44,7 @@ class ModeCargo(models.Model):
 
 class Truck(models.Model):
     title = models.CharField(max_length=75)
-    image = models.ImageField(upload_to = 'image/truck_images', null = True)
+    image = models.ImageField(upload_to = 'images/truck_images', null = True)
     description = models.TextField(max_length=50)
     category = models.ForeignKey(CategoryForTruck, on_delete=models.CASCADE, null=True, blank=True)
     car_weight = models.FloatField(default=0)
@@ -57,6 +58,22 @@ class Truck(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Car_Images(models.Model):
+    car = models.ForeignKey(Truck, on_delete=models.CASCADE, null=True, related_name="truck_images")
+    image = models.ImageField(upload_to='images/truckimages')
+    is_active = models.BooleanField(default=True)
+
+    @property
+    def get_image_url(self):
+        if settings.DEBUG:
+            return f"{settings.LOCAL_BASE_URL}{self.image.url}"
+        else:
+            return f"{settings.PROD_BASE_URL}{self.image.url}"
+
+    def __str__(self):
+        return f'Image of {self.car.id}'
 
 
 ## Автопарк
@@ -96,7 +113,7 @@ class Blog_About_Truck(models.Model):
 class Blog(models.Model):
     category = models.ForeignKey(Blog_About_Truck, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='image/blogimages', null=True)
+    image = models.ImageField(upload_to='images/blogimages', null=True)
     description = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -119,8 +136,8 @@ class About_Company(models.Model):
 
 
 class About_Company_Images(models.Model):
-    about = models.ForeignKey(About_Company, on_delete=models.CASCADE, null=True)
-    image = models.ImageField(upload_to='image/aboutimages', null=True)
+    about = models.ForeignKey(About_Company, on_delete=models.CASCADE, null=True, related_name="aboutimages")
+    image = models.ImageField(upload_to='images/aboutimages', null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -245,7 +262,7 @@ class Our_Services():
 
 
 class Our_Services_Images(models.Model):
-    image = models.ImageField(upload_to='image/serviceimages', null=True)
+    image = models.ImageField(upload_to='images/serviceimages', null=True)
     is_active = models.BooleanField(default=False)
 
     def __str__(self):

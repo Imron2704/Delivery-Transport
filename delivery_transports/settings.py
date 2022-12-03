@@ -17,9 +17,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 'apps'
-    'accounts',
     'apiv0',
     'main',
+    'accounts',
 
     # 'django.contrib.sites' 
     'allauth',
@@ -31,7 +31,9 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework',
     'knox',
-    'accounts'
+    # 'ckeditor',
+    # 'drf_yasg',
+    # 'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -153,6 +155,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static'
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]

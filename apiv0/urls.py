@@ -1,5 +1,8 @@
 from .views import RegisterAPI
+from django.urls import path, include
 from django.urls import path
+from .views import AboutCompanyListAPIView, AboutCompanyRetrieveAPIView
+
 
 urlpatterns = [
     path('trucks/', RegisterAPI.as_view(), name='trucks'),
@@ -7,6 +10,9 @@ urlpatterns = [
     path('order/', RegisterAPI.as_view(), name='trucks'),
     path('blog/', RegisterAPI.as_view(), name='trucks'),
     path('calculate/', RegisterAPI.as_view(), name='trucks'),
+    path('about/', include('delivery_transports.about_company.api.v1.urls')),
+    path('about-company/', AboutCompanyListAPIView.as_view()),
+    path('about-company/<int:pk>/', AboutCompanyRetrieveAPIView.as_view()),
 
     ##### Trucks/apiv0 #####
     # path('teachers/', TeacherViewSet.as_view({'get': 'list'}), name = 'teachers'),
