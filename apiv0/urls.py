@@ -1,7 +1,7 @@
 # from .views import RegisterAPI
 from django.urls import path, include
 from django.urls import path
-from .views import AboutCompanyListAPIView, AboutCompanyRetrieveAPIView
+from .views import *
 
 
 urlpatterns = [
@@ -11,8 +11,70 @@ urlpatterns = [
     # path('blog/', RegisterAPI.as_view(), name='trucks'),
     # path('calculate/', RegisterAPI.as_view(), name='trucks'),
     # path('about/', include('apiv0.urls')),
+
+    ## About Company Urls
+
     path('about-company/', AboutCompanyListAPIView.as_view()),
     path('about-company/<int:pk>/', AboutCompanyRetrieveAPIView.as_view()),
+    
+    ## Contact Urls
+
+    path('create/', ContactCreateAPIView.as_view()),
+    path('list/', ContactListAPIView.as_view()),
+
+    ## Truck Urls
+
+
+    path('category/', CategoryTruckListAPIView.as_view()),
+    path('category/<int:pk>/', CategoryTruckRetrieveAPIView.as_view()),
+    path('auto-cars/', TruckListAPIView.as_view()),
+    path('auto-car/<int:pk>/', TruckRetrieveAPIView.as_view()),
+
+    ## Blog Urls
+
+    path('category/', CategoryBlogListAPIView.as_view()),
+    path('category/<int:pk>/', CategoryBlogRetrieveAPIView.as_view()),
+    path('articles/', BlogListAPIView.as_view()),
+    path('article/<int:pk>/', BlogRetrieveAPIView.as_view()),
+
+    ## Order Urls
+
+    path('Order-api-view/', OrderListAPIView.as_view()),
+    path('Order-api-view/create', OrderCreateAPIView.as_view()),
+    path('retrieve/<str:transaction_id>/', OrderRetrieveAPIView.as_view()),
+
+
+    ## Work Principles Urls
+
+    path('create/', WokrPrinciplesCreateAPIView.as_view()),
+    path('list/', WorkPrinciplestListAPIView.as_view()),
+
+
+    ## Cost Delivery Urls
+
+    path('create/', CostDeliveryCreateAPIView.as_view()),
+    path('list/', CostDeliverytListAPIView.as_view()),
+
+    ## Our Services Urls
+
+    path('create/', OurServicesCreateAPIView.as_view()),
+    path('list/', OurServicesListAPIView.as_view()),
+
+    ## Our Delivery Method Urls
+
+    path('create/', DeliveryMethodDeliveryCreateAPIView.as_view()),
+    path('list/', DeliveryMethodDeliverytListAPIView.as_view()),
+
+    ## Our Submit Yout Application Urls
+
+    path('create/', SubmitApplicationCreateAPIView.as_view()),
+    path('list/', SubmitApplicationListAPIView.as_view()),
+
+    ## Unloading and Loading Urls
+
+    path('create/', UnloadingAndLoadingCreateAPIView.as_view()),
+    path('list/', UnloadingAndLoadingListAPIView.as_view()),
+
 
     ##### Trucks/apiv0 #####
     # path('teachers/', TeacherViewSet.as_view({'get': 'list'}), name = 'teachers'),
