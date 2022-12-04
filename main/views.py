@@ -18,27 +18,27 @@ def blog(request):
     return render(request, 'blog.html')
 
 @cache_page(6 * 10)
-def blog_post(request):
+def about_us(request):
     time.sleep(10)
     return render(request, 'aboutus.html')
 
 @cache_page(6 * 10)
-def index13(request):
+def for_business(request):
     time.sleep(10)
     return render(request, 'for-business.html')
 
 @cache_page(5 * 10)
-def photos(request):
+def services(request):
     time.sleep(10)
     return render(request, 'services.html')
     
 @cache_page(6 * 10)
-def photos(request):
+def international_shipping(request):
     time.sleep(10)
     return render(request, 'international-shipping.html')
 
 @cache_page(6 * 10)
-def photos(request):
+def individuals(request):
     time.sleep(10)
     return render(request, 'individuals.html')
 

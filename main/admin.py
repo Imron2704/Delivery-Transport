@@ -10,7 +10,7 @@ class AboutCompanyImagesInline(admin.TabularInline):
 class AboutCompanyAdmin(admin.ModelAdmin):
     inlines = [AboutCompanyImagesInline]
     list_display = ('id', 'title', 'is_active', 'date_created')
-    readonly_fields = ('date_created')
+    # readonly_fields = ('date_created')
 
 admin.site.register(About_Company, AboutCompanyAdmin)
 
