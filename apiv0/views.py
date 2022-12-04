@@ -60,7 +60,7 @@ class ContactListAPIView(generics.ListAPIView):
 
 
 class CategoryTruckListAPIView(generics.ListAPIView):
-    queryset = CategoryForTruck.objects.filter(is_active=True)
+    queryset = CategoryForTruck.objects.filter()
     serializer_class = TruckCategorySerializer
 
 
@@ -128,17 +128,17 @@ class OrderRetrieveAPIView(RetrieveAPIView):
 ## Class Wokr Principles ApiView
 
 
-class WokrPrinciplesCreateAPIView(generics.CreateAPIView):
-    queryset = Work_Principles.objects.all()
-    serializer_class = WorkPrinciplesSerializer
+# class WokrPrinciplesCreateAPIView(generics.CreateAPIView):
+#     queryset = Work_Principles.objects.all()
+#     serializer_class = WorkPrinciplesSerializer
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
+#     def post(self, request, *args, **kwargs):
+#         return self.create(request, *args, **kwargs)
 
 
-class WorkPrinciplestListAPIView(generics.ListAPIView):
-    queryset = Work_Principles.objects.all()
-    serializer_class = WorkPrinciplesSerializer
+# class WorkPrinciplestListAPIView(generics.ListAPIView):
+#     queryset = Work_Principles.objects.all()
+#     serializer_class = WorkPrinciplesSerializer
 
 
 ## Class Cost Of Delivery ApiView
@@ -176,46 +176,46 @@ class DeliveryMethodDeliverytListAPIView(generics.ListAPIView):
 ## Class Unloading and Loading ApiView
 
 
-class UnloadingAndLoadingCreateAPIView(generics.CreateAPIView):
-    queryset = Unloading_And_Loading.objects.all()
-    serializer_class = UnloadingAndLoadingSerializer
+# class UnloadingAndLoadingCreateAPIView(generics.CreateAPIView):
+#     queryset = Unloading_And_Loading.objects.all()
+#     serializer_class = UnloadingAndLoadingSerializer
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
+#     def post(self, request, *args, **kwargs):
+#         return self.create(request, *args, **kwargs)
 
 
-class UnloadingAndLoadingListAPIView(generics.ListAPIView):
-    queryset = Unloading_And_Loading.objects.all()
-    serializer_class = UnloadingAndLoadingSerializer
+# class UnloadingAndLoadingListAPIView(generics.ListAPIView):
+#     queryset = Unloading_And_Loading.objects.all()
+#     serializer_class = UnloadingAndLoadingSerializer
 
 
 ## Class Submit Your Application ApiView
 
 
-class SubmitApplicationCreateAPIView(generics.CreateAPIView):
-    queryset = Submit_Your_Application.objects.all()
-    serializer_class = SubmitTheApplicationSerializer
+# class SubmitApplicationCreateAPIView(generics.CreateAPIView):
+#     queryset = Submit_Your_Application.objects.all()
+#     serializer_class = SubmitTheApplicationSerializer
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
+#     def post(self, request, *args, **kwargs):
+#         return self.create(request, *args, **kwargs)
 
 
-class SubmitApplicationListAPIView(generics.ListAPIView):
-    queryset = Submit_Your_Application.objects.all()
-    serializer_class = SubmitTheApplicationSerializer
+# class SubmitApplicationListAPIView(generics.ListAPIView):
+#     queryset = Submit_Your_Application.objects.all()
+#     serializer_class = SubmitTheApplicationSerializer
 
 
 ## Class Our Services ApiView
 
 
-class OurServicesCreateAPIView(generics.CreateAPIView):
-    queryset = Our_Services.objects.all()
-    serializer_class = OurServicesSerializer
+# class OurServicesCreateAPIView(generics.CreateAPIView):
+#     queryset = Our_Services.objects.all()
+#     serializer_class = OurServicesSerializer
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
+#     def post(self, request, *args, **kwargs):
+#         return self.create(request, *args, **kwargs)
 
 
-class OurServicesListAPIView(generics.ListAPIView):
-    queryset = Our_Services.objects.all()
-    serializer_class = OurServicesSerializer
+# class OurServicesListAPIView(generics.ListAPIView):
+#     queryset = Our_Services.objects.all()
+#     serializer_class = OurServicesSerializer

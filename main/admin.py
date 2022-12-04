@@ -1,5 +1,9 @@
 from django.contrib import admin
 from .models import *
+# admin.site.register(Calculate_The_Cost)
+# admin.site.register(Submit_Your_Application)
+# admin.site.register(User)
+
 
 ## Class About Company
 
@@ -24,7 +28,7 @@ class TruckImagesImagesInline(admin.TabularInline):
 
 class TruckAdmin(admin.ModelAdmin):
     inlines = [TruckImagesImagesInline]
-    list_display = ('id', 'title','description', 'category', 'car_weight', 'car_length', 'is_active','date_created')
+    list_display = ('id', 'title','description', 'category', 'car_weight', 'car_length', 'is_active','created_date')
 
 
 ## Class Blog
@@ -96,17 +100,14 @@ admin.site.register(Category_Blog)
 admin.site.register(Blog)
 admin.site.register(About_Company_Images)
 admin.site.register(Contact)
-admin.site.register(Calculate_The_Cost)
-admin.site.register(Submit_Your_Application)
 admin.site.register(CategoryForTruck)
-admin.site.register(User)
 admin.site.register(About_Company, AboutCompanyAdmin)
 admin.site.register(Truck, TruckAdmin)
-admin.site.register(Blog, BlogAdmin)
-admin.site.register(Contact, ContactAdmin)
-admin.site.register(Work_Principles, WorkPrinciplesAdmin)
-admin.site.register(Our_Services, OurServicesAdmin)
-admin.site.register(Order, OrderAdmin)
+# admin.site.register(BlogAdmin)
+# admin.site.register(ContactAdmin)
+# admin.site.register(Work_Principles, WorkPrinciplesAdmin)
+# admin.site.register(Our_Services, OurServicesAdmin)
+# admin.site.register(OrderAdmin)
 
 
 

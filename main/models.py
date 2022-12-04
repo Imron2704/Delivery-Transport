@@ -49,6 +49,7 @@ class Truck(models.Model):
     car_weight = models.FloatField(default=0)
     car_length = models.FloatField(default=0)
     is_active = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='images/truckimages', null=True)
     created_date = models.DateTimeField(auto_now_add=True)
 
 
@@ -60,7 +61,7 @@ class Truck(models.Model):
 
 
 class Truck_Images(models.Model):
-    about = models.ForeignKey(Truck, on_delete=models.CASCADE, null=True, related_name="truckimages")
+    title = models.ForeignKey(Truck, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='images/truckimages', null=True)
     is_active = models.BooleanField(default=True)
 
